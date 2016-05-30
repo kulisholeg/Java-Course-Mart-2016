@@ -1,6 +1,7 @@
 package db;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -10,15 +11,23 @@ import java.sql.Statement;
 public class DBMain {
     public static void main(String[] args) throws SQLException {
 
-        Connection dbConnection = DBUtilsSample.getDBConnection();
-        Statement statement = dbConnection.createStatement();
-
+        Connection dbConnection = DBUtilsSemple.getDBConnection();
+        DatabaseMetaData metaData = dbConnection.getMetaData();
+        metaData.getCatalogs();
 
         try {
-            DBUtilsSample.createDbUserTable();
+            DBUtilsSemple.createDbUserTable();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
+        dbConnection = DBUtils.getDBConnection();
+        metaData = dbConnection.getMetaData();
+        metaData.getCatalogs();
+
+        // AddressBookMySQL.createContactTable();
+        //AddressBookMySQL.createAddressTable();
+        //AddressBookMySQL.createTelNumberTable();
+
     }
-}
