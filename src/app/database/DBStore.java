@@ -11,7 +11,7 @@ import java.util.Set;
 public interface DBStore {
     Long add(Contact contact) throws SQLException;
     Contact get(Long id) throws SQLException;
-    Set<Contact> getContacts();
+    Set<Contact> getContacts() throws SQLException;
     int remove(Long id);
     int remove(Contact contact);
     Set<Contact> search(Contact contact);

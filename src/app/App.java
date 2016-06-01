@@ -28,9 +28,11 @@ public class App {
 //        DBUtils.createEmailTable();
 
         Contact contact1 = new Contact();
-        contact1.setFirstName("Василий");
-        contact1.setLastName("Тараканов");
+        contact1.setFirstName("Umar");
+        contact1.setLastName("Zanori");
         DBUtils.addContact(contact1);
+
+
 
 
 

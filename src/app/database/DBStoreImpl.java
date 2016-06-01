@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
 import java.util.Set;
 
 import static app.database.connection.DBUtils.getDBConnection;
@@ -14,7 +15,7 @@ import static app.database.connection.DBUtils.getDBConnection;
  * Created by PackardBell on 31.05.2016.
  */
 public class DBStoreImpl implements DBStore {
-    ResultSet res;
+
 
 
     @Override
@@ -28,7 +29,7 @@ public class DBStoreImpl implements DBStore {
                 + " VALUES (" + contact.getFirstName() + contact.getLastName() + ",1984-08-01,8, 8 ,8"
                 + ")";
 
-        String returnUserID = "SELECT user_id WHERE user_name =" + contact.getFirstName();
+        String ret = "SELECT last_insert_id()";
 
         try {
             dbConnection = getDBConnection();
@@ -36,10 +37,7 @@ public class DBStoreImpl implements DBStore {
 
             // выполняем запрос delete SQL
             statement.execute(insertTableSQL);
-            System.out.println("Add this user");
-            res = statement.executeQuery(returnUserID);
-            statement.execute(returnUserID);
-            System.out.println("Return me him/his ID");
+            statement.execute(ret);
 
 
         } catch (SQLException e) {
@@ -54,7 +52,8 @@ public class DBStoreImpl implements DBStore {
         }
 
 
-        return res.getLong(1);
+
+        return null;
     }
 
     @Override
@@ -67,12 +66,13 @@ public class DBStoreImpl implements DBStore {
         String getContactSQL = "SELECT  * FROM contact WHERE  id = " + id;
 
 
+
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
 
             // выполняем запрос SELECT SQL
-            res = statement.executeQuery(getContactSQL);
+            statement.executeQuery(getContactSQL);
             System.out.println("База, дай мне контакт! ");
 
         } catch (SQLException e) {
@@ -85,13 +85,41 @@ public class DBStoreImpl implements DBStore {
                 dbConnection.close();
             }
         }
-        return (Contact) res;
+        return null;
     }
 
     @Override
-    public Set<Contact> getContacts() {
+    public Set<Contact> getContacts() throws SQLException {
+        Connection dbConnection = null;
+        Statement statement = null;
+        Set<Contact> contactSet = new HashSet<>();
+
+        String getAllContactsSQL = "SELECT  * FROM contact";
+
+
+        try {
+            dbConnection = getDBConnection();
+            statement = dbConnection.createStatement();
+
+            // выполняем запрос SELECT SQL
+            statement.executeQuery(getAllContactsSQL);
+
+            System.out.println("База, дай мне все контакты! ");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (dbConnection != null) {
+                dbConnection.close();
+            }
+        }
         return null;
     }
+
+
 
     @Override
     public int remove(Long id) {

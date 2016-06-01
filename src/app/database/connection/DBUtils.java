@@ -187,9 +187,9 @@ public class DBUtils {
 
 
         String insertContactSQL = "INSERT INTO contact "
-                + "(user_name, user_lastname, birthday, email_id, tel_id, address_id)"
-                + " VALUES (" + contact.getFirstName() + contact.getLastName() + ",1984-08-01,8, 8 ,8"
-                + ");";
+                + "(user_name, user_lastname, birthday, email_id, tel_id, address_id) "
+                + " VALUES (" +contact.getFirstName()+","+contact.getLastName()+","+"1986-05-16"+", 16, 16 ,16"+ ");";
+
 
         try {
             dbConnection = getDBConnection();
