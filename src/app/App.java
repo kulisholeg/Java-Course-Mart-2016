@@ -31,6 +31,6 @@ public class App {
         contact1.setFirstName("Василий");
         contact1.setLastName("Тараканов");
 
-        DBStoreImpl.add(contact1);
+
     }
 }
