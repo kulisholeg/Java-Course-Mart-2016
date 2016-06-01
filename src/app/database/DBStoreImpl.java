@@ -25,8 +25,7 @@ public class DBStoreImpl implements DBStore {
 
         String insertTableSQL = "INSERT INTO contact "
                 + "(user_name, user_lastname, birthday, email_id, tel_id, address_id)"
-                + " VALUES ("
-                + contact.getFirstName() + contact.getLastName() + ",1984-08-01,8, 8 ,8"
+                + " VALUES (" + contact.getFirstName() + contact.getLastName() + ",1984-08-01,8, 8 ,8"
                 + ")";
 
         String returnUserID = "SELECT user_id WHERE user_name =" + contact.getFirstName();
@@ -53,7 +52,7 @@ public class DBStoreImpl implements DBStore {
                 dbConnection.close();
             }
         }
-        res.toString();
+
 
         return res.getLong(1);
     }
@@ -73,8 +72,8 @@ public class DBStoreImpl implements DBStore {
             statement = dbConnection.createStatement();
 
             // выполняем запрос SELECT SQL
-            statement.execute(getContactSQL);
-            System.out.println("Запрос послан");
+            res = statement.executeQuery(getContactSQL);
+            System.out.println("База, дай мне контакт! ");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -86,7 +85,7 @@ public class DBStoreImpl implements DBStore {
                 dbConnection.close();
             }
         }
-        return null;
+        return (Contact) res;
     }
 
     @Override

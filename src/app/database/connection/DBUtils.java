@@ -1,19 +1,18 @@
 package app.database.connection;
 
-import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import app.model.Contact;
 
-import static db.DBUtilsSample.dateFormat;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by mda on 5/23/16.
  */
 public class DBUtils {
 
-    public static Connection getDBConnection(){
+    public static Connection getDBConnection() {
 
         String urlMySQL = "jdbc:mysql://localhost:3306/mysql_database";
         String login = "root";
@@ -22,7 +21,7 @@ public class DBUtils {
         //  return getDBConnection("org.postgresql.Driver", urlPostgress, login, password);
 
 
-        return getDBConnection("com.mysql.jdbc.Driver", urlMySQL,login, password);
+        return getDBConnection("com.mysql.jdbc.Driver", urlMySQL, login, password);
 //        return getDBConnection("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:mkyong","username","password");
     }
 
@@ -69,8 +68,7 @@ public class DBUtils {
             System.out.println("Table \"contact\" is created!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             if (statement != null) {
                 statement.close();
             }
@@ -108,8 +106,7 @@ public class DBUtils {
             System.out.println("Table \"address\" is created!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             if (statement != null) {
                 statement.close();
             }
@@ -141,8 +138,7 @@ public class DBUtils {
             System.out.println("Table \"tel_number\" is created!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             if (statement != null) {
                 statement.close();
             }
@@ -166,7 +162,6 @@ public class DBUtils {
                 + ")";
 
 
-
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
@@ -176,8 +171,7 @@ public class DBUtils {
             System.out.println("Table \"email\" is created!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             if (statement != null) {
                 statement.close();
             }
@@ -186,6 +180,36 @@ public class DBUtils {
             }
         }
     }
+
+    public static void addContact(Contact contact) throws SQLException {
+        Connection dbConnection = null;
+        Statement statement = null;
+
+
+        String insertContactSQL = "INSERT INTO contact "
+                + "(user_name, user_lastname, birthday, email_id, tel_id, address_id)"
+                + " VALUES (" + contact.getFirstName() + contact.getLastName() + ",1984-08-01,8, 8 ,8"
+                + ");";
+
+        try {
+            dbConnection = getDBConnection();
+            statement = dbConnection.createStatement();
+
+            // выполнить SQL запрос
+            statement.execute(insertContactSQL);
+            System.out.println("Contact is added!");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (dbConnection != null) {
+                dbConnection.close();
+            }
+        }
+    }
+
 
 //    static void insert() {
 //
@@ -320,7 +344,8 @@ public class DBUtils {
 //            con.setAutoCommit(true);
 //        }
 //    }
-
-
-
 }
+
+
+
+

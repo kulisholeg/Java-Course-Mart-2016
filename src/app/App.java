@@ -22,14 +22,17 @@ public class App {
         DatabaseMetaData metaData = dbConnection.getMetaData();
         metaData.getCatalogs();
 
-        DBUtils.createContactTable();
-        DBUtils.createAddressTable();
-        DBUtils.createTelNumberTable();
-        DBUtils.createEmailTable();
+//        DBUtils.createContactTable();
+//        DBUtils.createAddressTable();
+//        DBUtils.createTelNumberTable();
+//        DBUtils.createEmailTable();
 
         Contact contact1 = new Contact();
         contact1.setFirstName("Василий");
         contact1.setLastName("Тараканов");
+        DBUtils.addContact(contact1);
+
+
 
 
     }
