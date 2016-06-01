@@ -1,6 +1,8 @@
 package app;
 
+import app.database.DBStoreImpl;
 import app.database.connection.DBUtils;
+import app.model.Contact;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -24,5 +26,11 @@ public class App {
         DBUtils.createAddressTable();
         DBUtils.createTelNumberTable();
         DBUtils.createEmailTable();
+
+        Contact contact1 = new Contact();
+        contact1.setFirstName("Василий");
+        contact1.setLastName("Тараканов");
+
+        DBStoreImpl.add(contact1);
     }
 }
