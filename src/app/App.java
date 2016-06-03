@@ -27,13 +27,15 @@ public class App {
 //        DBUtils.createTelNumberTable();
 //        DBUtils.createEmailTable();
 
+        DBStoreImpl store = new DBStoreImpl();
+
+
         Contact contact1 = new Contact();
         contact1.setFirstName("Umar");
         contact1.setLastName("Zanori");
         DBUtils.addContact(contact1);
 
-
-
+        store.add(contact1);
 
 
 

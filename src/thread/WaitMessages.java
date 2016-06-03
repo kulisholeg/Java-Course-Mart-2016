@@ -1,6 +1,6 @@
 package thread;
 
-public class SleepMessages {
+public class WaitMessages {
     public static void main(String args[])
         throws InterruptedException {
         String importantInfo[] = {
@@ -13,8 +13,8 @@ public class SleepMessages {
         for (int i = 0;
              i < importantInfo.length;
              i++) {
-            //Pause for 4 seconds
-           // Thread.sleep(4000);
+            //Pause for 5 seconds
+            Thread.sleep(5000);
             //Print a message
             System.out.println(importantInfo[i]);
         }
