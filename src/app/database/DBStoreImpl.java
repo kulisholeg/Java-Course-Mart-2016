@@ -31,6 +31,8 @@ public class DBStoreImpl implements DBStore {
 
         String ret = "SELECT last_insert_id()";
 
+
+
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
