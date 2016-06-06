@@ -41,11 +41,11 @@ public class AddressBookIml implements AddressBook {
 
     @Override
     public Contact getContact(Long id) {
-        for (Contact cnt: contacts) {
-            if(cnt.id.equals(id)){
-                return cnt;
-            }
-        }
+//        for (Contact cnt: contacts) {
+//            if(cnt.id.equals(id)){
+//                return cnt;
+//            }
+//        }
 
         return null;
     }

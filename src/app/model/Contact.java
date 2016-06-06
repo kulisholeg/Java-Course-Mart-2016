@@ -1,5 +1,7 @@
 package app.model;
 
+import app.database.DBStoreImpl;
+
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +9,27 @@ import java.util.List;
  * Created by mda on 5/13/16.
  */
 public class Contact {
-    Long id;
+    private Long id;
+    private String uid;
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public Long getId() {
+
+        return id;
+
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     String firstName;
 
     public String getFirstName() {

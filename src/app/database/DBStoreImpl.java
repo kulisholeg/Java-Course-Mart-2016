@@ -26,12 +26,8 @@ public class DBStoreImpl implements DBStore {
 
         String insertTableSQL = "INSERT INTO contact "
                 + "(user_name, user_lastname, birthday, email_id, tel_id, address_id)"
-                + " VALUES (" + contact.getFirstName() + contact.getLastName() + ",1984-08-01,8, 8 ,8"
+                + " VALUES ('" + contact.getFirstName() + "','"+contact.getLastName() + "','birthday',8, 8 ,8"
                 + ")";
-
-        String ret = "SELECT last_insert_id()";
-
-
 
         try {
             dbConnection = getDBConnection();
@@ -39,7 +35,14 @@ public class DBStoreImpl implements DBStore {
 
             // выполняем запрос delete SQL
             statement.execute(insertTableSQL);
-            statement.execute(ret);
+
+            ResultSet rs = statement.executeQuery("select last_insert_id() as last_id from contact");
+            Long lastid ;
+
+            if(rs.first()) {
+                lastid = rs.getLong("last_id");
+                return  lastid;
+            }
 
 
         } catch (SQLException e) {
@@ -57,6 +60,74 @@ public class DBStoreImpl implements DBStore {
 
         return null;
     }
+
+    public Long addTelNumbers(Contact contact) throws SQLException {
+        Connection dbConnection = null;
+        Statement statement = null;
+
+
+        String insertTableSQL = "INSERT INTO tel_number "
+                + "(tel_number)"
+                + " VALUES (" + "phones"
+                + ")";
+
+        try {
+            dbConnection = getDBConnection();
+            statement = dbConnection.createStatement();
+
+            // выполняем запрос telNumber
+            statement.execute(insertTableSQL);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (dbConnection != null) {
+                dbConnection.close();
+            }
+        }
+
+
+
+        return null;
+    }
+
+    public Long addEmails(Contact contact) throws SQLException {
+        Connection dbConnection = null;
+        Statement statement = null;
+
+
+        String insertTableSQL = "INSERT INTO emails "
+                + "(email)"
+                + " VALUES (" + "emails"
+                + ")";
+
+        try {
+            dbConnection = getDBConnection();
+            statement = dbConnection.createStatement();
+
+            // выполняем запрос delete SQL
+            statement.execute(insertTableSQL);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (dbConnection != null) {
+                dbConnection.close();
+            }
+        }
+
+
+
+        return null;
+    }
+
+
 
     @Override
     public Contact get(Long id) throws SQLException {
@@ -118,7 +189,7 @@ public class DBStoreImpl implements DBStore {
                 dbConnection.close();
             }
         }
-        return null;
+        return contactSet;
     }
 
 

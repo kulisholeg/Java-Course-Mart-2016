@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addressBook>
-    <contact id="0">
+    <contact id="1">
         <firstName>Вася</firstName>
         <lastName>Иванов</lastName>
         <foto> </foto>
@@ -19,6 +19,69 @@
         <phoneNumbers>
             <phoneNumber1>093 123-1234</phoneNumber1>
             <phoneNumber2>093 123-5678</phoneNumber2>
+        </phoneNumbers>
+    </contact>
+    <contact id="2">
+        <firstName>Никита</firstName>
+        <lastName>Петров</lastName>
+        <foto> </foto>
+        <birthday>1963-06-01</birthday>
+        <email>bbbbbb@gmail.com</email>
+        <address>
+            <country>Украина</country>
+            <city>Киев</city>
+            <street>Салтовское шоссе</street>
+            <housenumber>84</housenumber>
+            <houseSuffix>а</houseSuffix>
+            <apartment>15</apartment>
+            <postalCode>644315</postalCode>
+            <zipCode>644315</zipCode>
+        </address>
+        <phoneNumbers>
+            <phoneNumber1>093 124-22222</phoneNumber1>
+            <phoneNumber2>093 125-22222</phoneNumber2>
+        </phoneNumbers>
+    </contact>
+    <contact id="3">
+        <firstName>Илья</firstName>
+        <lastName>Таранкин</lastName>
+        <foto> </foto>
+        <birthday>1982-11-16</birthday>
+        <email>tarankin@gmail.com</email>
+        <address>
+            <country>Украина</country>
+            <city>Харьков</city>
+            <street>Дружбы Народов</street>
+            <housenumber>206</housenumber>
+            <houseSuffix>а</houseSuffix>
+            <apartment>83</apartment>
+            <postalCode>61136</postalCode>
+            <zipCode>61136</zipCode>
+        </address>
+        <phoneNumbers>
+            <phoneNumber1>093 649-1234</phoneNumber1>
+            <phoneNumber2>093 150-5678</phoneNumber2>
+        </phoneNumbers>
+    </contact>
+    <contact id="4">
+        <firstName>Федор</firstName>
+        <lastName>Салкин</lastName>
+        <foto> </foto>
+        <birthday>1975-12-02</birthday>
+        <email>salkin@gmail.com</email>
+        <address>
+            <country>Украина</country>
+            <city>Харьков</city>
+            <street>Роберта Эйдемана</street>
+            <housenumber>15</housenumber>
+            <houseSuffix>а</houseSuffix>
+            <apartment>99</apartment>
+            <postalCode>61130</postalCode>
+            <zipCode>61130</zipCode>
+        </address>
+        <phoneNumbers>
+            <phoneNumber1>093 369-754</phoneNumber1>
+            <phoneNumber2>093 156-845</phoneNumber2>
         </phoneNumbers>
     </contact>
 </addressBook>

@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "uid": "7cbae8cd41a9d13892c8feb8e435c5e",
+    "firstName": "Oleg",
+    "lastName": "Kulish",
+    "address": {
+      "country": "Ukraine",
+      "city": "Kharkiv",
+      "street": "Buchmy",
+      "houseNumber": 30,
+      "houseSuffix": "a",
+      "postCode": 61144
+    },
+    "phones": [
+      "380934477307",
+      "380934140211"
+    ],
+    "emails": [
+      "l2raider@yandex.ru",
+      "l2raider@mail.ru"
+    ],
+    "photoPath": "http://some_path_to_image",
+    "birthday": "Jul 16, 1997 9:20:30 PM"
+  },
+  {
+    "id": 2,
+    "uid": "7cbae8cd41a9d13892c8feb8e435c5f",
+    "firstName": "Olga",
+    "lastName": "Kulish",
+    "address": {
+      "country": "Ukraine",
+      "city": "Kharkiv",
+      "street": "Buchmy",
+      "houseNumber": 30,
+      "houseSuffix": "a",
+      "postCode": 61144
+    },
+    "phones": [
+      "0397550377"
+    ],
+    "emails": [
+      "a@a.a",
+      "b@b.b"
+    ],
+    "photoPath": "http://some_path_to_image2",
+    "birthday": "Jul 16, 1998 9:20:30 PM"
+  }
+]
