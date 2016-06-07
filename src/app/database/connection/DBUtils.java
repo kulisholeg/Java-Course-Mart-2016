@@ -49,7 +49,7 @@ public class DBUtils {
         Statement statement = null;
 
         String createTableSQL = "CREATE TABLE contact("
-                + "user_id INTEGER NOT NULL, "
+                + "user_id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, "
                 + "user_name VARCHAR(20) NOT NULL, "
                 + "user_lastname VARCHAR(20) NOT NULL, "
                 + "email_id VARCHAR(50) NOT NULL, "
@@ -83,7 +83,7 @@ public class DBUtils {
         Statement statement = null;
 
         String createTableSQL = " CREATE TABLE address("
-                + "address_id INTEGER NOT NULL, "
+                + "address_id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, "
                 + "country  VARCHAR (30) NOT NULL, "
                 + "city VARCHAR (20) NULL, "
                 + "street VARCHAR(250) NOT NULL, "
@@ -121,7 +121,7 @@ public class DBUtils {
         Statement statement = null;
 
         String createTableSQL = "CREATE TABLE tel_number("
-                + "tel_id INTEGER NOT NULL, "
+                + "tel_id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, "
                 + "tel_number VARCHAR (20) NOT NULL, "
                 + "PRIMARY KEY (tel_id) "
                 + "FOREIGN KEY (user_id) REFERENCES contact(user_id)  " +
@@ -153,7 +153,7 @@ public class DBUtils {
         Statement statement = null;
 
         String createTableSQL = "CREATE TABLE email("
-                + "email_id INTEGER NOT NULL, "
+                + "email_id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, "
                 + "email VARCHAR (255) NOT NULL, "
                 + "PRIMARY KEY (email_id) "
                 + "FOREIGN KEY (user_id) REFERENCES contact(user_id)  " +
